@@ -96,7 +96,6 @@ class ChattingScreen extends StatelessWidget {
                                       },
                                       child: const Icon(
                                         Icons.photo,
-                                        color: Colors.green,
                                       )),
                                   suffixIcon: InkWell(
                                       onTap: () {
@@ -109,7 +108,7 @@ class ChattingScreen extends StatelessWidget {
                                       },
                                       child: const Icon(
                                         Icons.send,
-                                        color: Colors.green,
+                                        // color: Colors.green,
                                       ))),
                             ),
                           ),

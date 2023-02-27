@@ -13,7 +13,7 @@ class HomeController extends ChangeNotifier {
   List<User> users = List.empty(growable: true);
   HomeController() {
     socket = IO.io(
-        'http://192.168.21.7:3000',
+        AppConstant.serverAddress,
         IO.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect()
@@ -31,6 +31,9 @@ class HomeController extends ChangeNotifier {
         for (var row in detail) {
           users.add(User.fromJson(row));
         }
+        final String currentUserId =
+            PreferenceController.getString(AppConstant.userId);
+        users.removeWhere((element) => element.id == currentUserId);
         notifyListeners();
       }
     });

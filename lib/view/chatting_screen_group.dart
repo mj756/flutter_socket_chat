@@ -71,7 +71,6 @@ class GroupChattingScreen extends StatelessWidget {
                                     },
                                     child: const Icon(
                                       Icons.photo,
-                                      color: Colors.green,
                                     )),
                                 suffixIcon: InkWell(
                                     onTap: () {
@@ -85,7 +84,6 @@ class GroupChattingScreen extends StatelessWidget {
                                     },
                                     child: const Icon(
                                       Icons.send,
-                                      color: Colors.green,
                                     ))),
                           ),
                         ),

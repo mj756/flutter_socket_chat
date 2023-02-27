@@ -14,7 +14,7 @@ class LoginController extends ChangeNotifier {
   bool isLogin = false;
   LoginController({required BuildContext context}) {
     socket = IO.io(
-        'http://192.168.21.7:3000',
+        AppConstant.serverAddress,
         IO.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect()
@@ -24,7 +24,6 @@ class LoginController extends ChangeNotifier {
     socket.on('loginResult', (detail) {
       Map<String, dynamic> response = detail as Map<String, dynamic>;
       if (response['status'] == 0) {
-        response['data']['user']['id'] = response['data']['user']['_id'];
         final User user = User.fromJson(response['data']['user']);
         PreferenceController.setBoolean(AppConstant.isLoggedIn, true);
         PreferenceController.setString(AppConstant.userId, user.id);

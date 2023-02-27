@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning/constants/app_constant.dart';
 import 'package:learning/controller/event.dart';
 import 'package:learning/network/api_controller.dart';
 
@@ -23,7 +24,7 @@ class ChattingController extends ChangeNotifier {
   }
   Future<void> sendFile({required String filePath}) async {
     await ApiController().postFormData(
-        url: 'http://192.168.21.7:3000/api/user/upload',
+        url: AppConstant.endpointFileUpload,
         params: {
           'sender': currentUserId,
           'receiver': otherUserId,

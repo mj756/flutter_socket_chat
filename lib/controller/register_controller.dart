@@ -14,7 +14,7 @@ class RegisterController extends ChangeNotifier {
   bool isLogin = false;
   RegisterController({required BuildContext context}) {
     socket = IO.io(
-        'http://192.168.21.7:3000',
+        AppConstant.serverAddress,
         IO.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect()

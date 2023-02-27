@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:learning/constants/app_constant.dart';
 
 import '../model/chat.dart';
 import '../network/api_controller.dart';
@@ -22,10 +23,10 @@ class GroupChattingController extends ChangeNotifier {
   }
   Future<void> sendFile({required String filePath}) async {
     await ApiController().postFormData(
-        url: 'http://192.168.21.7:3000/api/user/upload',
+        url: AppConstant.endpointFileUpload,
         params: {
           'sender': currentUserId,
-          'receiver': 'sdkfjkdsj',
+          'receiver': 'group',
           'groupId': '',
           'messageType': 'file',
         },
